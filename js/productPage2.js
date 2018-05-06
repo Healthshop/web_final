@@ -12,6 +12,11 @@ fetch(url)
         //innerHtml+='<div style="height:25px;"><div class="legend-color-box" style="background-color:'+legendTable['other'][0][k]+';"></div><span style="line-height: 23px;">'+legendTable['other'][1][k]+'</span></div>';
        //innerHtml += data[k].TermDt
 
+       let relevant_keywords = "";
+       for (var i=0; i < 3; i++){
+        relevant_keywords += '<li class="list-inline-item">' + data[k].Matches[i] +'</li>';
+       }
+       
        innerHtml += '<a href="#" class="list-group-item list-group-item-action flex-column align-items-start">' +
                         '<div class="d-flex w-100 justify-content-between">' +
                             '<h4 class="mb-1">'+data[k].TermDt+'</h4>' +
@@ -25,8 +30,13 @@ fetch(url)
                             '<li class="list-inline-item">Zipcode:'+data[k].ProviderZip+'</li>' +
                             '<li class="list-inline-item">Compare &nbsp; <input id="compare-enabled" type="checkbox" /></li>' +
                         '</ul></small>' +
+                        '<p class="mb-1" style="line-height: 0.8;"><small><strong>Relevant Keywords</strong></small></p>' +
+                        '<small><ul class="list-inline">' +
+                            relevant_keywords +
+                        '</ul></small>' +                        
                     '</a>'
 
+//Matches
 
     }        
     //innerHtml+='</div></div>';
